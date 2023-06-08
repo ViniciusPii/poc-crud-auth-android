@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PocCrud</string>
+    <string name="login_title">Faça seu login!</string>
+    <string name="login_button_title">Cadastrar</string>
+    <string name="edit_text_user_hint">E-mail</string>
+    <string name="edit_text_password_hint">Senha</string>
 </resources>
