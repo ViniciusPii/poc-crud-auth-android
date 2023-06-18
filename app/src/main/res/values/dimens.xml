@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="small">4dp</dimen>
+    <dimen name="medium">8dp</dimen>
+    <dimen name="large">16dp</dimen>
+    <dimen name="extraLarge">24dp</dimen>
+    <dimen name="xxl">32dp</dimen>
+    <dimen name="mega">40dp</dimen>
+    <dimen name="jumbo">48dp</dimen>
+    <dimen name="giant">56dp</dimen>
+    <dimen name="huge">64dp</dimen>
+    <dimen name="enormous">72dp</dimen>
+    <dimen name="colossal">80dp</dimen>
+
+    <!-- Fonts -->
+    <dimen name="small_font">11sp</dimen>
+    <dimen name="medium_small_font">12sp</dimen>
+    <dimen name="medium_font">14sp</dimen>
+    <dimen name="medium_large_font">16sp</dimen>
+    <dimen name="large_font">18sp</dimen>
+    <dimen name="extra_large_font">24sp</dimen>
+    <dimen name="huge_font">28sp</dimen>
+    <dimen name="very_huge_font">32sp</dimen>
+    <dimen name="gigantic_font">36sp</dimen>
+    <dimen name="enormous_font">45sp</dimen>
+    <dimen name="humongous_font">57sp</dimen>
+</resources>

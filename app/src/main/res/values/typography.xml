@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Text">
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/textNormal</item>
+    </style>
+
+    <style name="Body.Small" parent="Text">
+        <item name="android:textSize">@dimen/small_font</item>
+    </style>
+
+    <style name="Body.Medium" parent="Text">
+        <item name="android:textSize">@dimen/medium_font</item>
+    </style>
+
+    <style name="Body.Large" parent="Text">
+        <item name="android:textSize">@dimen/medium_large_font</item>
+    </style>
+
+    <style name="Label.Small" parent="Text">
+        <item name="android:textSize">@dimen/small_font</item>
+    </style>
+
+    <style name="Label.Medium" parent="Text">
+        <item name="android:textSize">@dimen/medium_small_font</item>
+    </style>
+
+    <style name="Label.Large" parent="Text">
+        <item name="android:textSize">@dimen/medium_font</item>
+    </style>
+
+    <style name="Title.Small" parent="Text">
+        <item name="android:textSize">@dimen/medium_font</item>
+    </style>
+
+    <style name="Title.Medium" parent="Text">
+        <item name="android:textSize">@dimen/medium_large_font</item>
+    </style>
+
+    <style name="Title.Large" parent="Text">
+        <item name="android:textSize">@dimen/large_font</item>
+    </style>
+
+    <style name="Headline.Small" parent="Text">
+        <item name="android:textSize">@dimen/extra_large_font</item>
+    </style>
+
+    <style name="Headline.Medium" parent="Text">
+        <item name="android:textSize">@dimen/huge_font</item>
+    </style>
+
+    <style name="Headline.Large" parent="Text">
+        <item name="android:textSize">@dimen/very_huge_font</item>
+    </style>
+
+    <style name="Display.Small" parent="Text">
+        <item name="android:textSize">@dimen/gigantic_font</item>
+    </style>
+
+    <style name="Display.Medium" parent="Text">
+        <item name="android:textSize">@dimen/enormous_font</item>
+    </style>
+
+    <style name="Display.Large" parent="Text">
+        <item name="android:textSize">@dimen/humongous_font</item>
+    </style>
+</resources>
