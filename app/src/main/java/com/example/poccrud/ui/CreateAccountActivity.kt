@@ -3,6 +3,7 @@ package com.example.poccrud.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.poccrud.databinding.ActivityCreateAccountBinding
+import com.example.poccrud.utils.NavigationUtils.Companion.goToActivity
 
 class CreateAccountActivity : AppCompatActivity() {
 
@@ -19,6 +20,6 @@ class CreateAccountActivity : AppCompatActivity() {
 
     private fun setupListeners() = with(binding) {
         createBackButton.setOnClickListener { finish() }
-        createAccountUserButton.setOnClickListener { }
+        createAccountUserButton.setOnClickListener { goToActivity<HomeActivity>(isFinished = true) }
     }
 }

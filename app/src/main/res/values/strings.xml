@@ -22,4 +22,7 @@
     <string name="create_label_email">Email</string>
     <string name="create_label_password">Senha</string>
     <string name="create_account_text_button">Criar conta</string>
+
+    <!--HomePage-->
+    <string name="home_sign_out_button">Sair</string>
 </resources>

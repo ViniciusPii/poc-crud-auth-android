@@ -8,7 +8,9 @@ import android.os.Parcelable
 class NavigationUtils {
 
     companion object {
-        inline fun <reified T : Activity> Context.goToActivity(vararg params: Pair<String, Any?>) {
+        inline fun <reified T : Activity> Context.goToActivity(
+            vararg params: Pair<String, Any?>, isFinished: Boolean = false
+        ) {
             val intent = Intent(this, T::class.java)
 
             params.forEach { (key, value) ->
@@ -18,6 +20,9 @@ class NavigationUtils {
                     //Adicionar conforme necessidade
                 }
             }
+
+            if (isFinished) intent.flags =
+                Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
 
             startActivity(intent)
         }
