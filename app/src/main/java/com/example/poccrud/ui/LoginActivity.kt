@@ -1,4 +1,4 @@
-package com.example.poccrud
+package com.example.poccrud.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -20,15 +20,15 @@ class LoginActivity : AppCompatActivity() {
         setListeners()
     }
 
-    private fun setListeners() {
-        binding.loginButton.setOnClickListener {
-            binding.loginButton.isVisible = false
-            binding.loadingButton.isVisible = true
+    private fun setListeners() = with(binding) {
+        loginButton.setOnClickListener {
+            loginButton.isVisible = false
+            loadingButton.isVisible = true
 
             MainScope().launch {
                 delay(600)
-                binding.loginButton.isVisible = true
-                binding.loadingButton.isVisible = false
+                loginButton.isVisible = true
+                loadingButton.isVisible = false
             }
         }
     }
