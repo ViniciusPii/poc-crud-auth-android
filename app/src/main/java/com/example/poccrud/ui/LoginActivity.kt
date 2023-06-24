@@ -21,8 +21,6 @@ class LoginActivity : AppCompatActivity() {
     private fun setListeners() = with(binding) {
         backButton.setOnClickListener { finish() }
         loginButton.setOnClickListener { }
-        createAccountButton.setOnClickListener {
-            goToActivity<CreateAccountActivity>("args" to "Teste de args")
-        }
+        goToCreateAccount.setOnClickListener { goToActivity<CreateAccountActivity>() }
     }
 }

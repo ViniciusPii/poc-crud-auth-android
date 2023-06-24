@@ -1,17 +1,25 @@
 <resources>
-    <string name="app_name">Ds App</string>
+    <string name="app_name">Crud App Login</string>
 
     <!--LoginPage-->
     <string name="login_title">Faça seu login!</string>
     <string name="edit_text_user_hint">E-mail</string>
     <string name="edit_text_password_hint">Senha</string>
     <string name="login_button_title">Fazer Login</string>
-    <string name="login_create_account_text">Ainda não tem uma conta?</string>
-    <string name="login_create_account_button">Crie já!</string>
+    <string name="login_go_to_create_account_text">Ainda não tem uma conta?</string>
+    <string name="login_go_to_create_account_button">Crie já!</string>
 
     <!--WelcomePage-->
     <string name="welcome_page_title">Seja bem vindo(a)!</string>
     <string name="welcome_page_information">Faça seu login pelo Google! Ou se preferir entre utilizando seu email e senha =D</string>
     <string name="welcome_google_button">Entrar com o Google</string>
     <string name="welcome_email_and_password_button">Entre com email e senha</string>
+
+    <!--CreateAccountPage-->
+    <string name="create_account_title">Crie sua conta!</string>
+    <string name="create_account_subtitle">É rapidinho!</string>
+    <string name="create_label_name">Nome</string>
+    <string name="create_label_email">Email</string>
+    <string name="create_label_password">Senha</string>
+    <string name="create_account_text_button">Criar conta</string>
 </resources>

@@ -14,18 +14,11 @@ class CreateAccountActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val string = intent.getStringExtra(ARGS)
-
-        binding.userName.text = string
-
         setupListeners()
     }
 
     private fun setupListeners() = with(binding) {
         createBackButton.setOnClickListener { finish() }
-    }
-
-    companion object {
-        const val ARGS = "args"
+        createAccountUserButton.setOnClickListener { }
     }
 }
