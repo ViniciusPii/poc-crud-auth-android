@@ -6,6 +6,7 @@ import com.example.poccrud.databinding.ActivityLoginBinding
 import com.example.poccrud.utils.NavigationUtils.Companion.goToActivity
 
 class LoginActivity : AppCompatActivity() {
+
     private val binding: ActivityLoginBinding by lazy {
         ActivityLoginBinding.inflate(layoutInflater)
     }

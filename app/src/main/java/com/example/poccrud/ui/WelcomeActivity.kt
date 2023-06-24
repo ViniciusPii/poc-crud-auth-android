@@ -6,6 +6,7 @@ import com.example.poccrud.databinding.ActivityWelcomeBinding
 import com.example.poccrud.utils.NavigationUtils.Companion.goToActivity
 
 class WelcomeActivity : AppCompatActivity() {
+
     private val binding: ActivityWelcomeBinding by lazy {
         ActivityWelcomeBinding.inflate(layoutInflater)
     }

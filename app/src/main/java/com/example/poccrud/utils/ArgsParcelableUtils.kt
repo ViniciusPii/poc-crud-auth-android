@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Parcelable
 
 class ArgsParcelableUtils {
+
     companion object {
         inline fun <reified T : Parcelable> Intent.parcelable(key: String): T? = when {
             SDK_INT >= 33 -> getParcelableExtra(key, T::class.java)
