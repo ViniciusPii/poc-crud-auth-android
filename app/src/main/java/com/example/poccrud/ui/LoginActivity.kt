@@ -31,5 +31,7 @@ class LoginActivity : AppCompatActivity() {
                 loadingButton.isVisible = false
             }
         }
+
+        backButton.setOnClickListener { finish() }
     }
 }

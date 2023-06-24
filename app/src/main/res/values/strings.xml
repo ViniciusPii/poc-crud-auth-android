@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">Ds App</string>
+
+    <!--LoginPage-->
     <string name="login_title">Faça seu login!</string>
     <string name="edit_text_user_hint">E-mail</string>
     <string name="edit_text_password_hint">Senha</string>
     <string name="login_button_title">Fazer Login</string>
+
+    <!--WelcomePage-->
+    <string name="welcome_page_title">Seja bem vindo(a)!</string>
+    <string name="welcome_page_information">Faça seu login pelo Google! Ou se preferir entre utilizando seu email e senha =D</string>
+    <string name="welcome_google_button">Entrar com o Google</string>
+    <string name="welcome_email_and_password_button">Entre com email e senha</string>
 </resources>

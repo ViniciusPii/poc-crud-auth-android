@@ -8,6 +8,16 @@
     android:paddingVertical="@dimen/large"
     tools:context=".ui.LoginActivity">
 
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_arrow_left"
+        android:backgroundTint="@color/neutral800"
+        android:importantForAccessibility="no"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/login_title"
         style="@style/Headline.Small"
@@ -17,7 +27,10 @@
         android:text="@string/login_title"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/text_input_email"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4"
+        app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_email"
@@ -27,7 +40,7 @@
         app:layout_constraintBottom_toTopOf="@id/text_input_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_title"
         app:layout_constraintVertical_chainStyle="packed">
 
         <EditText
