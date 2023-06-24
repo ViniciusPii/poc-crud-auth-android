@@ -10,7 +10,7 @@ class NavigationUtils {
     companion object {
         inline fun <reified T : Activity> Context.goToActivity(vararg params: Pair<String, Any?>) {
             val intent = Intent(this, T::class.java)
-            
+
             params.forEach { (key, value) ->
                 when (value) {
                     is Parcelable -> intent.putExtra(key, value)
