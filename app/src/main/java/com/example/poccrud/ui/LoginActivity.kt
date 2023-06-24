@@ -2,11 +2,8 @@ package com.example.poccrud.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.example.poccrud.databinding.ActivityLoginBinding
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import com.example.poccrud.utils.NavigationUtils.Companion.goToActivity
 
 class LoginActivity : AppCompatActivity() {
     private val binding: ActivityLoginBinding by lazy {
@@ -21,17 +18,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun setListeners() = with(binding) {
-        loginButton.setOnClickListener {
-            loginButton.isVisible = false
-            loadingButton.isVisible = true
-
-            MainScope().launch {
-                delay(600)
-                loginButton.isVisible = true
-                loadingButton.isVisible = false
-            }
-        }
-
         backButton.setOnClickListener { finish() }
+        loginButton.setOnClickListener { }
+        createAccountButton.setOnClickListener {
+            goToActivity<CreateAccountActivity>("args" to "Teste de args")
+        }
     }
 }

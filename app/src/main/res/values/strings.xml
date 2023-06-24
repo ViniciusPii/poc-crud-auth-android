@@ -6,6 +6,8 @@
     <string name="edit_text_user_hint">E-mail</string>
     <string name="edit_text_password_hint">Senha</string>
     <string name="login_button_title">Fazer Login</string>
+    <string name="login_create_account_text">Ainda não tem uma conta?</string>
+    <string name="login_create_account_button">Crie já!</string>
 
     <!--WelcomePage-->
     <string name="welcome_page_title">Seja bem vindo(a)!</string>
