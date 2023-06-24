@@ -19,7 +19,10 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun setupListeners() = with(binding) {
-        googleButton.setOnClickListener { }
+        googleButton.setOnClickListener {
+            goToActivity<HomeActivity>()
+            finish()
+        }
         loginEmailButton.setOnClickListener { goToActivity<LoginActivity>() }
     }
 }

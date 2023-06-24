@@ -20,7 +20,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setListeners() = with(binding) {
         backButton.setOnClickListener { finish() }
-        loginButton.setOnClickListener { }
+        loginButton.setOnClickListener {
+            goToActivity<HomeActivity>()
+            finishAffinity()
+        }
         goToCreateAccount.setOnClickListener { goToActivity<CreateAccountActivity>() }
     }
 }

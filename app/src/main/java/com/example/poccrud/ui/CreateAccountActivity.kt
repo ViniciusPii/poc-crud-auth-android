@@ -20,6 +20,9 @@ class CreateAccountActivity : AppCompatActivity() {
 
     private fun setupListeners() = with(binding) {
         createBackButton.setOnClickListener { finish() }
-        createAccountUserButton.setOnClickListener { goToActivity<HomeActivity>(isFinished = true) }
+        createAccountUserButton.setOnClickListener {
+            goToActivity<HomeActivity>()
+            finishAffinity()
+        }
     }
 }
