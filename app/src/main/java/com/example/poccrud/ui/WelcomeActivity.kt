@@ -5,39 +5,41 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.example.poccrud.R
 import com.example.poccrud.databinding.ActivityWelcomeBinding
+import com.example.poccrud.ui.viewmodels.WelcomeViewModel
+import com.example.poccrud.ui.viewmodels.WelcomeViewModel.State
 import com.example.poccrud.utils.NavigationUtils.Companion.goToActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class WelcomeActivity : AppCompatActivity() {
 
     private val binding: ActivityWelcomeBinding by lazy {
         ActivityWelcomeBinding.inflate(layoutInflater)
     }
+    private val viewModel: WelcomeViewModel by viewModel()
 
-    private lateinit var auth: FirebaseAuth
+    private val stateObserver = Observer<State> { state ->
+        when (state) {
+            is State.Loading -> Unit
+            is State.Success -> showSuccess()
+            is State.Error -> showError(state.message)
+        }
+    }
 
-    private lateinit var googleSignInClient: GoogleSignInClient
+    private fun showError(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        auth = Firebase.auth
-
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail().build()
-        googleSignInClient = GoogleSignIn.getClient(this,gso)
+        viewModel.signInResult.observe(this, stateObserver)
 
         setupListeners()
     }
@@ -47,8 +49,18 @@ class WelcomeActivity : AppCompatActivity() {
         loginEmailButton.setOnClickListener { goToActivity<LoginActivity>() }
     }
 
+    private fun showSuccess() {
+        goToActivity<HomeActivity>()
+        finish()
+    }
+
     private fun signInWithGoogle() {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail().build()
+        val googleSignInClient = GoogleSignIn.getClient(this, gso)
         val signInIntent = googleSignInClient.signInIntent
+
         launcher.launch(signInIntent)
     }
 
@@ -56,32 +68,10 @@ class WelcomeActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-                handleResults(task)
-            } else {
-                Toast.makeText(this, "${result.resultCode}", Toast.LENGTH_SHORT).show()
-            }
-        }
+                val account: GoogleSignInAccount? = task.result
+                val idToken = account?.idToken
 
-    private fun handleResults(task: Task<GoogleSignInAccount>) {
-        if (task.isSuccessful) {
-            val account: GoogleSignInAccount? = task.result
-            if (account != null) {
-                updateUI(account)
-            }
-        } else {
-            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun updateUI(account: GoogleSignInAccount) {
-        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
-        auth.signInWithCredential(credential).addOnCompleteListener {
-            if (it.isSuccessful) {
-                goToActivity<HomeActivity>()
-                finish()
-            } else {
-                Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                if (idToken != null) viewModel.sigInWithGoogle(idToken)
             }
         }
-    }
 }
