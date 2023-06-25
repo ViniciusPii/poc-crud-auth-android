@@ -31,6 +31,15 @@ class WelcomeActivity : AppCompatActivity() {
         }
     }
 
+    private val stateObserverLogged = Observer<State> { state ->
+        when (state) {
+            is State.Loading -> Unit
+            is State.Success -> showSuccess()
+            is State.Error -> Unit
+        }
+    }
+
+
     private fun showError(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
@@ -40,7 +49,9 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         viewModel.signInResult.observe(this, stateObserver)
+        viewModel.signInResult.observe(this, stateObserverLogged)
 
+        viewModel.isLoggedIn()
         setupListeners()
     }
 

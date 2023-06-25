@@ -6,4 +6,5 @@ import com.google.firebase.auth.AuthResult
 interface AuthRepository {
     suspend fun signInWithGoogle(idToken: String): Task<AuthResult>
     suspend fun signOut()
+    suspend fun isLoggedIn(): Boolean
 }
