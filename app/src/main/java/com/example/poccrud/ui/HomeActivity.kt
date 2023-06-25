@@ -3,6 +3,7 @@ package com.example.poccrud.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.poccrud.databinding.ActivityHomeBinding
+import com.example.poccrud.utils.NavigationUtils.Companion.goToActivity
 
 class HomeActivity : AppCompatActivity() {
 
@@ -18,6 +19,9 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setupListeners() {
-        binding.homeSignOutButton.setOnClickListener { }
+        binding.homeSignOutButton.setOnClickListener {
+            goToActivity<WelcomeActivity>()
+            finish()
+        }
     }
 }
